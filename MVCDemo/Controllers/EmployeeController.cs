@@ -17,7 +17,8 @@ namespace MVCDemo.Controllers
                 EmployeeID = 100,
                 Name = "Jeevan",
                 Gender = "Male",
-                City = "Delhi"
+                City = "Delhi",
+                Salary = 10000
             };
 
             return View(employee );
