@@ -18,7 +18,8 @@ namespace MVCDemo.Controllers
                 Name = "Jeevan",
                 Gender = "Male",
                 City = "Delhi",
-                Salary = 10000
+                Salary = 10000,
+                Address = "Pune"
             };
 
             return View(employee );
