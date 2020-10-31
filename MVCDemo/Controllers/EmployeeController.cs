@@ -10,19 +10,28 @@ namespace MVCDemo.Controllers
     public class EmployeeController : Controller
     {
         // GET: Employee
-        public ActionResult Details()
+        public ActionResult Details(int id)
         {
-            Employee employee = new Employee()
-            {
-                EmployeeID = 100,
-                Name = "Jeevan",
-                Gender = "Male",
-                City = "Delhi",
-                Salary = 10000,
-                Address = "Pune"
-            };
+            EmployeeContext employeeContext = new EmployeeContext();
+            Employee employee =  employeeContext.Employees.Single(emp => emp.EmployeeId == id); 
+
+            //Employee employee = new Employee()
+            //{
+            //    EmployeeId  = 100,
+            //    Name = "Jeevan",
+            //    Gender = "Male",
+            //    City = "Delhi"
+            //};
 
             return View(employee );
+        }
+
+        public ActionResult Index(int departmentId)
+        {
+            EmployeeContext employeeContext = new EmployeeContext();
+            List<Employee> employees = employeeContext.Employees.Where(emp => emp.DepartmentId == departmentId).ToList();
+
+            return View(employees);
         }
     }
 }
